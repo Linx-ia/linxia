@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0deg 0% 100%;
+    --foreground: 222deg 0% 4%;
+
+    --muted: 210deg 40% 96.1%;
+    --muted-foreground: 215.4deg 16.3% 46.9%;
+
+    --popover: 0deg 0% 100%;
+    --popover-foreground: 222deg 0% 4%;
+
+    --border: 214.3deg 31.8% 91.4%;
+    --input: 214.3deg 31.8% 91.4%;
+
+    --card: 0deg 0% 100%;
+    --card-foreground: 222deg 0% 4%;
+
+    --primary: 22deg 91% 55%;
+    --primary-foreground: 0deg 0% 100%;
+
+    --secondary: 275deg 29% 41%;
+    --secondary-foreground: 0deg 0% 100%;
+
+    --destructive: 0deg 100% 50%;
+    --destructive-foreground: 210deg 40% 98%;
+
+    --ring: 215deg 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222deg 0% 4%;
+    --foreground: 0deg 0% 100%;
+
+    --muted: 222deg 0% 4%;
+    --muted-foreground: 215.4deg 16.3% 56.9%;
+
+    --accent: 222deg 0% 4%;
+    --accent-foreground: 210geg 40% 98%;
+
+    --popover: 222deg 0% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 222deg 0% 11%;
+    --input: 222deg 0% 11%;
+
+    --card: 222deg 0% 4%;
+    --card-foreground: 222deg 0% 11%;
+
+    --primary: 22deg 91% 55%;
+    --primary-foreground: 222deg 0% 4%;
+
+    --secondary: 275deg 29% 41%;
+    --secondary-foreground: 222deg 0% 4%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 222deg 0% 11%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  .container {
+    @apply max-sm:px-4;
+  }
+}
