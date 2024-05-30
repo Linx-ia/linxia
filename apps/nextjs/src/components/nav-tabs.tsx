@@ -8,7 +8,7 @@ export default function NavTabs() {
   const pathname = usePathname();
 
   const tabs = [
-    { name: "Links", href: `/dashboard` },
+    { name: "Home", href: `/dashboard` },
     { name: "Analytics", href: `/dashboard/analytics` },
     { name: "Domains", href: `/dashboard/domains` },
     { name: "Settings", href: `/dashboard/settings` },

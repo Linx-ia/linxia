@@ -72,3 +72,17 @@
     @apply max-sm:px-4;
   }
 }
+
+.react-scroll-to-bottom {
+  position: relative;
+}
+
+.react-scroll-to-bottom-auto {
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.whitespace-pre-wrap {
+  white-space: pre-wrap;
+}

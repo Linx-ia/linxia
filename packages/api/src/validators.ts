@@ -4,20 +4,17 @@ import * as z from "zod";
  * Shared validators used in both the frontend and backend
  */
 
-export const createProjectSchema = z.object({
-  name: z.string().min(5, "Name must be at least 5 characters"),
+const AgentModelName = {
+  gpt_3_5_turbo: "gpt_3_5_turbo",
+} as const;
+
+type AgentModelName = (typeof AgentModelName)[keyof typeof AgentModelName];
+
+export const createAgentSchema = z.object({
+  name: z.string().min(3, "Nome deve ter pelo menos 3 caracteres."),
   description: z.string().optional(),
-  url: z.string().url("Must be a valid URL").optional(),
+  promptSystem: z.string().optional(),
+  modelName: z.nativeEnum(AgentModelName).default(AgentModelName.gpt_3_5_turbo),
+  temperature: z.number().default(0),
 });
-export type CreateProject = z.infer<typeof createProjectSchema>;
-
-export const renameProjectSchema = z.object({
-  projectId: z.string(),
-  name: z.string().min(5, "Name must be at least 5 characters"),
-});
-export type RenameProject = z.infer<typeof renameProjectSchema>;
-
-export const projectExistsSchema = z.object({
-  projectId: z.string(),
-});
-export type projectExists = z.infer<typeof projectExistsSchema>;
+export type CreateProject = z.infer<typeof createAgentSchema>;

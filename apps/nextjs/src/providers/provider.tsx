@@ -1,6 +1,7 @@
 "use cliente";
 
 import type { ReactNode } from "react";
+import { Toaster } from "sonner";
 
 import { TooltipProvider } from "@linxia/ui";
 
@@ -11,6 +12,7 @@ export default function Provider({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
       <TooltipProvider>
+        <Toaster closeButton className="pointer-events-auto" />
         <ModalProvider>{children}</ModalProvider>
       </TooltipProvider>
     </ThemeProvider>

@@ -10,35 +10,21 @@ datasource db {
   relationMode = "prisma"
 }
 
-enum SubscriptionPlan {
-  FREE
-  STANDARD
-  PRO
+enum AgentModelName {
+  gpt_3_5_turbo
 }
 
-model Project {
-  id        String   @id @db.VarChar(30) // prefix_ + nanoid (16)
+model Agents {
+  id String @id @db.VarChar(30)
+
+  userId       String         @db.VarChar(36)
+  name         String
+  description  String?
+  promptSystem String?
+  modelName    AgentModelName @default(gpt_3_5_turbo)
+  temperature  Float          @default(0.0)
+
   createdAt DateTime @default(now())
 
-  // A project is tied to a Clerk User 
-  userId         String? @db.VarChar(36) // uuid v4
-
-  name String
-  description String?
-  url  String?
-
   @@index([userId])
-}
-
-model Customer {
-  id                  String            @id @db.VarChar(30) // prefix_ + nanoid (16)
-  stripeId            String            @unique
-  subscriptionId      String?
-  clerkUserId         String
-  name                String?
-  plan                SubscriptionPlan?
-  paidUntil           DateTime?
-  endsAt              DateTime?
-
-  @@index([clerkUserId])
 }

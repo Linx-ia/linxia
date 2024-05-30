@@ -10,6 +10,8 @@ export * from "./popover";
 export * from "./modal";
 export * from "./tooltip";
 export * from "./textarea";
+export * from "./form";
+export * from "./label";
 
 // layout
 export * from "./background";

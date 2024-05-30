@@ -1,7 +1,5 @@
-export const SubscriptionPlan = {
-  FREE: "FREE",
-  STANDARD: "STANDARD",
-  PRO: "PRO",
+export const AgentModelName = {
+  gpt_3_5_turbo: "gpt_3_5_turbo",
 } as const;
-export type SubscriptionPlan =
-  (typeof SubscriptionPlan)[keyof typeof SubscriptionPlan];
+export type AgentModelName =
+  (typeof AgentModelName)[keyof typeof AgentModelName];

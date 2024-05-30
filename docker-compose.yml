@@ -3,12 +3,12 @@ version: "3.8"
 services:
   postgres:
     image: postgres:15
-    container_name: database
+    container_name: db-linx-ia
     restart: always
     ports:
-      - 5432:5432  # enables connecting locally via psql
+      - 5433:5433  # enables connecting locally via psql
     environment:
       - DATABASE_HOST=127.0.0.1
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=root
+      - POSTGRES_DB=linxia

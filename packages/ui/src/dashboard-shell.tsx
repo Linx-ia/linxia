@@ -1,3 +1,5 @@
+import { cn } from "@linxia/utils";
+
 export function DashboardShell(props: {
   title: string;
   description?: React.ReactNode;
@@ -21,7 +23,14 @@ export function DashboardShell(props: {
           </div>
         </div>
       </div>
-      <div className={props.className}>{props.children}</div>
+      <div
+        className={cn(
+          props.className,
+          "mx-auto w-full max-w-screen-xl px-2.5 lg:px-20",
+        )}
+      >
+        {props.children}
+      </div>
     </div>
   );
 }

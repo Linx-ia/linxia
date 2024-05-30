@@ -5,7 +5,7 @@ import { cn } from "@linxia/utils";
 export type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ className, ...props }) => {
+  ({ className, ...props }, ref) => {
     return (
       <textarea
         className={cn(
@@ -34,6 +34,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           className,
         )}
         {...props}
+        ref={ref}
       />
     );
   },

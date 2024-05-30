@@ -1,20 +1,7 @@
-"use client";
+import { api } from "~/trpc/server";
+import ContentPage from "./_components/content-page";
 
-import { DashboardShell } from "@linxia/ui";
-
-import Chat from "~/components/chat";
-import { useAddEditAgentModal } from "~/components/models/add-edit-agent-model";
-
-export default function HomeDash() {
-  const { AddEditAgentModal, AddAgentButton } = useAddEditAgentModal();
-  return (
-    <>
-      <AddEditAgentModal />
-      <DashboardShell title="Teste">
-        <AddAgentButton />
-        <h1>ds</h1>
-        <Chat />
-      </DashboardShell>
-    </>
-  );
+export default async function HomeDash() {
+  const { agents } = await api.agent.list.query();
+  return <ContentPage agents={agents} />;
 }
