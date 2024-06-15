@@ -6,7 +6,7 @@ import withMDX from "@next/mdx";
 const config = {
   reactStrictMode: true,
   /** Enables hot reloading for local packages without a build step */
-  transpilePackages: ["@linxia/ui", "@linxia/db", "@linxia/api"],
+  transpilePackages: ["@linxia/ui", "@linxia/db", "@linxia/api", "@linxia/chat"],
   pageExtensions: ["ts", "tsx", "mdx"],
   experimental: {
     mdxRs: true,

@@ -1,13 +1,13 @@
-import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { cva } from "class-variance-authority";
-import type { VariantProps } from "class-variance-authority";
+import * as React from "react"
+import { Slot } from "@radix-ui/react-slot"
+import { cva } from "class-variance-authority"
+import type { VariantProps } from "class-variance-authority"
 
-import { cn } from "@linxia/utils";
+import { cn } from "@linxia/utils"
 
-import IconLoader from "./iconLoaderButton";
+import IconLoader from "./iconLoaderButton"
 
-export type ButtonVariantProps = VariantProps<typeof buttonVariants>;
+export type ButtonVariantProps = VariantProps<typeof buttonVariants>
 const buttonVariants = cva(
   `inline-flex 
   items-center 
@@ -52,24 +52,27 @@ const buttonVariants = cva(
       size: "default",
     },
   },
-);
+)
 
+export type IconContainerVariantProps = VariantProps<
+  typeof IconContainerVariants
+>
 const IconContainerVariants = cva("", {
   variants: {
     size: {
-      default: "[&_svg]:h-[14px] [&_svg]:w-[14px] mr-1",
-      sm: "[&_svg]:h-[18px] [&_svg]:w-[18px]  mr-1",
-      lg: "[&_svg]:h-[20px] [&_svg]:w-[20px]  mr-1",
-      icon: "[&_svg]:h-[10px] [&_svg]:w-[10px]  mr-1",
-      large: "[&_svg]:h-[20px] [&_svg]:w-[20px]  mr-1",
-      xlarge: "[&_svg]:h-[24px] [&_svg]:w-[24px]  mr-1",
-      xxlarge: "[&_svg]:h-[30px] [&_svg]:w-[30px]  mr-1",
-      xxxlarge: "[&_svg]:h-[42px] [&_svg]:w-[42px]  mr-1",
+      default: "[&_svg]:h-[14px] [&_svg]:w-[14px]",
+      sm: "[&_svg]:h-[18px] [&_svg]:w-[18px]",
+      lg: "[&_svg]:h-[20px] [&_svg]:w-[20px]",
+      icon: "[&_svg]:h-[10px] [&_svg]:w-[10px]",
+      large: "[&_svg]:h-[20px] [&_svg]:w-[20px]",
+      xlarge: "[&_svg]:h-[24px] [&_svg]:w-[24px]",
+      xxlarge: "[&_svg]:h-[30px] [&_svg]:w-[30px]",
+      xxxlarge: "[&_svg]:h-[42px] [&_svg]:w-[42px]",
     },
   },
-});
+})
 
-export type LoadingVariantProps = VariantProps<typeof loadingVariants>;
+export type LoadingVariantProps = VariantProps<typeof loadingVariants>
 const loadingVariants = cva("", {
   variants: {
     loading: {
@@ -77,21 +80,19 @@ const loadingVariants = cva("", {
       true: `animate-spin`,
     },
   },
-});
+})
 
 export interface ButtonProps
-  // omit `type` as we use it to change type of button
-  // replaced with `htmlType`
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type">,
-    // omit 'disabled' as it is included in HTMLButtonElement
     Omit<ButtonVariantProps, "disabled">,
     LoadingVariantProps {
-  asChild?: boolean;
-  type?: ButtonVariantProps["type"];
-  htmlType?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"];
-  icon?: React.ReactNode;
-  iconLeft?: React.ReactNode;
-  iconRight?: React.ReactNode;
+  asChild?: boolean
+  type?: ButtonVariantProps["type"]
+  htmlType?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"]
+  icon?: React.ReactNode
+  sizeIcon?: IconContainerVariantProps["size"]
+  iconLeft?: React.ReactNode
+  iconRight?: React.ReactNode
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -100,6 +101,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       type = "default",
       size = "default",
+      sizeIcon = "default",
       asChild = false,
       loading,
       icon,
@@ -110,11 +112,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref,
   ) => {
-    const Comp = asChild ? Slot : "button";
-    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-    const showIcon = loading || icon;
-    const _iconLeft: React.ReactNode = icon ?? iconLeft;
-    props.disabled = loading ? true : props.disabled;
+    const Comp = asChild ? Slot : "button"
+    const showIcon = loading || icon
+    const _iconLeft: React.ReactNode = icon ?? iconLeft
+    props.disabled = loading ? true : props.disabled
 
     return (
       <Comp
@@ -131,17 +132,19 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               undefined,
               showIcon &&
                 (loading ? (
-                  <div className={cn(IconContainerVariants({ size }))}>
+                  <div
+                    className={cn(IconContainerVariants({ size: sizeIcon }))}
+                  >
                     <IconLoader />
                   </div>
                 ) : _iconLeft ? (
-                  <div className={cn(IconContainerVariants({ size }))}>
+                  <div
+                    className={cn(IconContainerVariants({ size: sizeIcon }))}
+                  >
                     {_iconLeft}
                   </div>
                 ) : null),
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
               children.props.children && (
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                 <span className={"a truncate"}>{children.props.children}</span>
               ),
             )
@@ -150,11 +153,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           <>
             {showIcon &&
               (loading ? (
-                <div className={cn(IconContainerVariants({ size }))}>
+                <div className={cn(IconContainerVariants({ size: sizeIcon }))}>
                   <IconLoader />
                 </div>
               ) : _iconLeft ? (
-                <div className={cn(IconContainerVariants({ size }))}>
+                <div className={cn(IconContainerVariants({ size: sizeIcon }))}>
                   {_iconLeft}
                 </div>
               ) : null)}{" "}
@@ -162,9 +165,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </>
         )}
       </Comp>
-    );
+    )
   },
-);
-Button.displayName = "Button";
+)
+Button.displayName = "Button"
 
-export { Button, buttonVariants };
+export { Button, buttonVariants }

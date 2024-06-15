@@ -1,22 +1,22 @@
-import "~/styles/globals.css";
+import "~/styles/globals.css"
 
-import { Inter } from "next/font/google";
-import LocalFont from "next/font/local";
-import { ClerkProvider } from "@clerk/nextjs";
+import { Inter } from "next/font/google"
+import LocalFont from "next/font/local"
+import { ClerkProvider } from "@clerk/nextjs"
 
-import { cn } from "@linxia/utils";
+import { cn } from "@linxia/utils"
 
-import Provider from "~/providers/provider";
-import { siteConfig } from "./config";
+import Provider from "~/providers/provider"
+import { siteConfig } from "./config"
 
 const fontSans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
-});
+})
 const fontCal = LocalFont({
   src: "../styles/calsans.ttf",
   variable: "--font-cal",
-});
+})
 
 export const metadata = {
   title: {
@@ -38,26 +38,28 @@ export const metadata = {
     creator: "@jullerino",
   },
   metadataBase: new URL("https://acme-corp.jumr.dev"),
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <ClerkProvider>
       <html lang="pt-BR" suppressHydrationWarning>
         <body
           className={cn(
-            "min-h-screen font-sans antialiased",
+            "bg-gray-50 font-sans antialiased",
             fontSans.variable,
             fontCal.variable,
           )}
         >
-          <Provider>{children}</Provider>
+          <div id="__next">
+            <Provider>{children}</Provider>
+          </div>
         </body>
       </html>
     </ClerkProvider>
-  );
+  )
 }

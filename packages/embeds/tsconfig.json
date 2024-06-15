@@ -1,0 +1,26 @@
+{
+    "extends": "@linxia/tsconfig/react-library.json",
+    "compilerOptions": {
+      "allowJs": true,
+      "baseUrl": ".",
+      "paths": {
+        "@linxia/chat/*": ["../chat/src/*"]
+      },
+      "plugins": [
+        {
+          "name": "next"
+        }
+      ],
+      "noEmit": true
+    },
+    "include": [
+      "next-env.d.ts",
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      ".next/types/**/*.ts"
+    ],
+    "exclude": ["node_modules", "widgets/prestashop/vendor"]
+  }
+  

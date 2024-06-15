@@ -1,6 +1,6 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
-import sharedConfig from "@linxia/tailwind-config";
+import sharedConfig from "@linxia/tailwind-config"
 
 const config: Pick<Config, "presets"> = {
   presets: [
@@ -11,6 +11,7 @@ const config: Pick<Config, "presets"> = {
         "./app/**/*.{js,ts,jsx,tsx}",
         // h/t to https://www.willliu.com/blog/Why-your-Tailwind-styles-aren-t-working-in-your-Turborepo
         "../../packages/ui/src/**/*{.js,.ts,.jsx,.tsx}",
+        "../../packages/chat/src/**/*{.js,.ts,.jsx,.tsx}",
       ],
       theme: {
         extend: {
@@ -32,6 +33,6 @@ const config: Pick<Config, "presets"> = {
       },
     },
   ],
-};
+}
 
-export default config;
+export default config

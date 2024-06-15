@@ -1,15 +1,15 @@
-import { cn } from "@linxia/utils";
+import { cn } from "@linxia/utils"
 
 export function DashboardShell(props: {
-  title: string;
-  description?: React.ReactNode;
-  headerAction?: React.ReactNode;
-  children: React.ReactNode;
-  className?: string;
+  title: string
+  description?: React.ReactNode
+  headerAction?: React.ReactNode
+  children: React.ReactNode
+  className?: string
 }) {
   return (
     <div>
-      <div className="flex h-36 items-center border-b border-gray-200 bg-white">
+      <div className="mb-10 flex h-36 items-center border-b border-gray-200 bg-white">
         <div className="mx-auto w-full max-w-screen-xl px-2.5 lg:px-20">
           <div className="flex items-center justify-between">
             <div>
@@ -26,11 +26,11 @@ export function DashboardShell(props: {
       <div
         className={cn(
           props.className,
-          "mx-auto w-full max-w-screen-xl px-2.5 lg:px-20",
+          "mx-auto w-full max-w-screen-xl px-2.5 pb-5 lg:px-20",
         )}
       >
         {props.children}
       </div>
     </div>
-  );
+  )
 }

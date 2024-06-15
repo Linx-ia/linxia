@@ -24,6 +24,7 @@
     "@linxia/prettier-config": "workspace:^",
     "@manypkg/cli": "^0.21.3",
     "@turbo/gen": "^1.12.5",
+    "ai": "3.1.22",
     "cross-env": "^7.0.3",
     "prettier": "^3.2.5",
     "turbo": "^1.12.5",

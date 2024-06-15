@@ -1,15 +1,15 @@
-import type { ReactNode } from "react";
-import { Suspense } from "react";
-import Link from "next/link";
-import { currentUser } from "@clerk/nextjs";
+import type { ReactNode } from "react"
+import { Suspense } from "react"
+import Link from "next/link"
+import { currentUser } from "@clerk/nextjs"
 
-import { Avatar, Button, LogoLinx } from "@linxia/ui";
+import { Avatar, Button, LogoLinx } from "@linxia/ui"
 
-import NavTabs from "~/components/nav-tabs";
-import UserDropdown from "~/components/user-dropdown";
+import NavTabs from "~/components/nav-tabs"
+import UserDropdown from "~/components/user-dropdown"
 
 export default async function Layout({ children }: { children: ReactNode }) {
-  const user = await currentUser();
+  const user = await currentUser()
 
   if (!user) {
     return (
@@ -18,17 +18,17 @@ export default async function Layout({ children }: { children: ReactNode }) {
           <Avatar className="h-8 w-8" />
         </Button>
       </Link>
-    );
+    )
   }
 
-  const fullname = `${user.firstName} ${user.lastName}`;
+  const fullname = `${user.firstName} ${user.lastName}`
 
   const email = user.emailAddresses.find(
     (e) => e.id === user.primaryEmailAddressId,
-  )?.emailAddress;
+  )?.emailAddress
 
   return (
-    <div className="min-h-screen w-full bg-gray-50">
+    <div className="h-full w-full">
       <div className="sticky left-0 right-0 top-0 z-20 border-b border-gray-200 bg-white">
         <div className="mx-auto w-full max-w-screen-xl px-2.5 lg:px-20">
           <div className="flex h-16 items-center justify-between">
@@ -66,5 +66,5 @@ export default async function Layout({ children }: { children: ReactNode }) {
       </div>
       {children}
     </div>
-  );
+  )
 }

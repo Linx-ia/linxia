@@ -1,0 +1,36 @@
+{
+    "name": "@linxia/embeds",
+    "version": "0.1.4",
+    "description": "Linxia Embeds",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist/**"
+    ],
+    "scripts": {
+        "build": "tsup",
+        "lint": "eslint src/",
+        "dev": "tsup --watch",
+        "check-types": "tsc --noEmit",
+        "embeds:publish": "pnpm build && npm version patch && npm publish"
+    },
+    "author": "Linxia",
+    "license": "MIT",
+    "dependencies": {
+        "@linxia/tailwind-config": "workspace:*",
+        "@linxia/chat": "workspace:*",
+        "@linxia/tsconfig": "workspace:*",
+        "@linxia/utils": "workspace:*",
+        "autoprefixer": "^10.4.16",
+        "concurrently": "^8.2.1",
+        "esbuild": "^0.20.0",
+        "tsup-plugin-postcss": "^1.6.3",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "tailwindcss": "^3.4.1"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
