@@ -1,5 +1,5 @@
 {
-    "name": "@linxia/embeds",
+    "name": "@linxia-org/embeds",
     "version": "0.1.4",
     "description": "Linxia Embeds",
     "main": "./dist/index.js",
@@ -9,9 +9,9 @@
         "dist/**"
     ],
     "scripts": {
-        "build": "tsup",
+        "build:embeds": "tsup && node teste.js",
         "lint": "eslint src/",
-        "dev": "tsup --watch",
+        "dev:embeds": "tsup --watch",
         "check-types": "tsc --noEmit",
         "embeds:publish": "pnpm build && npm version patch && npm publish"
     },
@@ -25,10 +25,11 @@
         "autoprefixer": "^10.4.16",
         "concurrently": "^8.2.1",
         "esbuild": "^0.20.0",
-        "tsup-plugin-postcss": "^1.6.3",
         "react": "18.2.0",
         "react-dom": "18.2.0",
-        "tailwindcss": "^3.4.1"
+        "tailwindcss": "^3.4.1",
+        "ai": "^3.1.22",
+        "@ai-sdk/openai": "^0.0.18"
     },
     "publishConfig": {
         "access": "public"
