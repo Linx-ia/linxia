@@ -1,3 +1,5 @@
+"use client"
+
 import React, { FunctionComponent, useState } from "react"
 import { createRoot, Root } from "react-dom/client"
 

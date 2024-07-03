@@ -19,12 +19,12 @@
     "tailwindcss": "3.4.1"
   },
   "devDependencies": {
-    "@linxia/eslint-config": "^0.2.0",
-    "@linxia/prettier-config": "^0.1.0",
-    "@linxia/tsconfig": "^0.1.0",
+    "@linxia/eslint-config": "workspace:*",
+    "@linxia/prettier-config": "workspace:*",
+    "@linxia/tsconfig": "workspace:*",
     "eslint": "^8.56.0",
     "prettier": "^3.2.4",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.4",
     "tailwindcss-animate": "^1.0.7"
   },
   "eslintConfig": {

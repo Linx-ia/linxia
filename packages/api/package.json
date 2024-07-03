@@ -38,9 +38,9 @@
     "zod-form-data": "^2.0.2"
   },
   "devDependencies": {
-    "@linxia/eslint-config": "^0.2.0",
-    "@linxia/prettier-config": "^0.1.0",
-    "@linxia/tsconfig": "^0.1.0",
+    "@linxia/eslint-config": "workspace:*",
+    "@linxia/prettier-config": "workspace:*",
+    "@linxia/tsconfig": "workspace:*",
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
     "typescript": "^5.4.4"

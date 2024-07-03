@@ -9,12 +9,10 @@
         "dist/**"
     ],
     "scripts": {
-        "build:embeds": "tsup && node teste.js",
-        "lint": "eslint src/",
-        "dev:embeds": "tsup --watch",
-        "check-types": "tsc --noEmit",
-        "embeds:publish": "pnpm build && npm version patch && npm publish"
-    },
+    "dev": "rm -rf dist && mkdir -p dist && concurrently \"cross-env NODE_ENV=teste node esbuild.config.mjs\"",
+    "build": "rm -rf dist && mkdir -p dist && concurrently \"cross-env NODE_ENV=teste node esbuild.config.mjs\"",
+    "embeds:publish": "pnpm build && npm version patch && npm publish"
+  },
     "author": "Linxia",
     "license": "MIT",
     "dependencies": {
@@ -29,7 +27,9 @@
         "react-dom": "18.2.0",
         "tailwindcss": "^3.4.1",
         "ai": "^3.1.22",
-        "@ai-sdk/openai": "^0.0.18"
+        "@ai-sdk/openai": "^0.0.18",
+        "esbuild-style-plugin": "1.6.3",
+        "cross-env": "^7.0.3"
     },
     "publishConfig": {
         "access": "public"

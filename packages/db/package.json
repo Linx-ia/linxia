@@ -22,15 +22,15 @@
     "pg": "^8.11.3"
   },
   "devDependencies": {
-    "@linxia/eslint-config": "^0.2.0",
-    "@linxia/prettier-config": "^0.1.0",
-    "@linxia/tsconfig": "^0.1.0",
+    "@linxia/eslint-config": "workspace:*",
+    "@linxia/prettier-config": "workspace:*",
+    "@linxia/tsconfig": "workspace:*",
     "dotenv-cli": "^7.4.1",
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
     "prisma": "^5.11.0",
     "prisma-kysely": "^1.8.0",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.4"
   },
   "eslintConfig": {
     "extends": [

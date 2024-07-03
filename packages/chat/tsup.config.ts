@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup';
+import { defineConfig, Format } from 'tsup';
 
 const cfg = {
   splitting: false,
@@ -6,7 +6,7 @@ const cfg = {
   clean: true,
   treeshake: false,
   dts: true,
-  format: ['esm', 'cjs'],
+  format: ['esm', 'cjs'] as Format[],
 };
 
 export default defineConfig([
