@@ -54,6 +54,11 @@ let ctx = await esbuild.context({
   jsx: 'automatic',
   define: {
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    'process': JSON.stringify({
+      env: {
+        NODE_ENV: process.env.NODE_ENV,
+      }
+    }),
   },
   metafile: true,
   sourcemap: true,
@@ -66,6 +71,7 @@ let ctx = await esbuild.context({
         // @ts-ignore
         plugins: [tailwindcss, autoprefixer],
       },
+      
     }),
     resolvePlugin,
   ],
@@ -78,7 +84,7 @@ let ctx = await esbuild.context({
   },
   alias: {
     'ai/rsc': path.resolve(__dirname, '../../node_modules/ai/rsc/dist/rsc-client.mjs'),
-    'async_hooks': path.resolve(__dirname, '../../node_modules/@types/node/async_hooks.d.ts'),
+    'async_hooks': path.resolve(__dirname, './asyncLocalStoragePolyfill.js'),
   },
 });
 

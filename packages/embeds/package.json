@@ -1,18 +1,16 @@
 {
     "name": "@linxia-org/embeds",
-    "version": "0.1.4",
+    "version": "0.1.14",
     "description": "Linxia Embeds",
-    "main": "./dist/index.js",
-    "module": "./dist/index.mjs",
-    "types": "./dist/index.d.ts",
+    "main": "dist/index.js",
     "files": [
-        "dist/**"
+        "dist/**/*"
     ],
     "scripts": {
-    "dev": "rm -rf dist && mkdir -p dist && concurrently \"cross-env NODE_ENV=teste node esbuild.config.mjs\"",
-    "build": "rm -rf dist && mkdir -p dist && concurrently \"cross-env NODE_ENV=teste node esbuild.config.mjs\"",
-    "embeds:publish": "pnpm build && npm version patch && npm publish"
-  },
+        "dev": "rm -rf dist && mkdir -p dist && concurrently \"cross-env NODE_ENV=teste node esbuild.config.mjs\"",
+        "build": "rm -rf dist && mkdir -p dist && concurrently \"cross-env NODE_ENV=teste node esbuild.config.mjs\"",
+        "embeds:publish": "pnpm build && npm version patch && npm publish"
+    },
     "author": "Linxia",
     "license": "MIT",
     "dependencies": {
